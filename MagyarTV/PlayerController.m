@@ -10,10 +10,20 @@
 
 @implementation PlayerController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.allowsPictureInPicturePlayback = true;
+    self.delegate = self;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     [self.player play];
+}
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler {
+    [_parentVC presentViewController:playerViewController animated:true completion:nil];
 }
 
 @end

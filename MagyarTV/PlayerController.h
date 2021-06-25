@@ -10,6 +10,8 @@
 
 @import AVKit;
 
-@interface PlayerController : AVPlayerViewController
+@interface PlayerController : AVPlayerViewController<AVPlayerViewControllerDelegate>
+
+@property (nonatomic, weak) UIViewController *parentVC;
 
 @end

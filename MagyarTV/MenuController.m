@@ -37,6 +37,7 @@ static NSString * const reuseIdentifier = @"Cell";
     if ([segue.identifier isEqualToString:@"Show Channel"]) {
         PlayerController *controller = (PlayerController *)segue.destinationViewController;
         NSURL *liveStreamURL = (NSURL *)sender;
+        controller.parentVC = self;
         controller.player = [AVPlayer playerWithURL:liveStreamURL];
     }
 }
