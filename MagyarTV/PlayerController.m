@@ -23,7 +23,9 @@
 }
 
 - (void)playerViewController:(AVPlayerViewController *)playerViewController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler {
+#if TARGET_OS_IOS && !TARGET_OS_UIKITFORMAC
     [_parentVC presentViewController:playerViewController animated:true completion:nil];
+#endif
 }
 
 @end
